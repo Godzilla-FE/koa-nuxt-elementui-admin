@@ -3,17 +3,20 @@
 </style>
 
 <template>
-  <layout>
-      <nuxt/>
-  </layout>
+  <app>
+    <breadcrumb slot="breadcrumb"/>
+    <nuxt/>
+  </app>
 </template>
 
 <script>
-  import layout from '~/components/Layout/layout'
+  import app from '~/components/Layouts/app'
+  import breadcrumb from '~/components/Layouts/breadcrumb'
 
   export default {
     components: {
-      layout
+      app,
+      breadcrumb
     }
   }
 </script>
