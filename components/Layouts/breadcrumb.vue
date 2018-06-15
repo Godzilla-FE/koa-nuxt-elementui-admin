@@ -1,4 +1,4 @@
-<style lang="less"  rel="stylesheet/less">
+<style lang="scss"  rel="stylesheet/scss">
   .breadcrumb {
     display: -ms-flexbox;
     display: flex;

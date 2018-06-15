@@ -1,4 +1,4 @@
-<style lang="less"  rel="stylesheet/less">
+<style lang="scss"  rel="stylesheet/scss">
   .layout {
     display: -ms-flexbox;
     display: flex;
@@ -12,7 +12,16 @@
     flex: 1;
     min-width: 0;
   }
-
+  @media (min-width: 992px){
+    .header-fixed .app-header {
+      position: fixed;
+      z-index: 1020;
+      width: 100%;
+    }
+    .header-fixed .app-body {
+      margin-top: 55px;
+    }
+  }
   @media (min-width: 576px) and (min-width: 992px){
     html:not([dir=rtl]) .aside-menu-lg-show.aside-menu-fixed  .main, html:not([dir=rtl]) .app-footer {
       margin-right: 250px;
@@ -23,6 +32,13 @@
     html:not([dir=rtl]) .sidebar-lg-show.sidebar-fixed.sidebar-minimized .main, html:not([dir=rtl]) .sidebar-lg-show.sidebar-fixed.sidebar-minimized .app-footer {
       margin-left: 65px;
     }
+
+    html:not([dir=rtl]) .sidebar-minimized .sidebar .sidebar-nav .el-menu {
+      &>.el-menu-item-group .el-menu-item-group__title {
+        display: none;
+      }
+    }
+
   }
   .main >.app-container {
     width: 100%;
@@ -33,14 +49,14 @@
 </style>
 
 <template>
-  <div class="layout sidebar-fixed sidebar-lg-show" :class="{ 'sidebar-minimized' : sidebarCollapsed  }" >
-    <app-header></app-header>
+  <div class="layout header-fixed sidebar-fixed sidebar-lg-show" :class="{ 'sidebar-minimized' : sidebarCollapsed  }" >
+    <app-header/>
     <div class="app-body">
-      <sidebar  v-bind:collapsed="sidebarCollapsed" @toggle="toggleSidebarCollapse"></sidebar>
+      <sidebar :collapsed="sidebarCollapsed" @toggle="toggleSidebarCollapse"/>
       <main class="main">
         <slot name="breadcrumb"></slot>
         <div class="app-container">
-          <slot></slot>
+          <slot/>
         </div>
       </main>
     </div>

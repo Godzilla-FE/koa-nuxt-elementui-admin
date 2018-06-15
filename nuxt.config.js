@@ -13,14 +13,25 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+  babel:{
+    "plugins": [["component", [
+      {
+        "libraryName": "element-ui",
+        "styleLibraryName": "theme-default"
+      },
+      'transform-async-to-generator',
+      'transform-runtime'
+    ]]],
+    comments: true
+  },
   /*
   ** Global CSS
   */
-  css: ['element-ui/lib/theme-chalk/index.css','~/assets/styles/main.less'],
+  css: ['~/assets/styles/main.scss'],
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#3B8070' },
+  loading: '~/components/loading.vue',
   /*
    ** Build configuration
    */

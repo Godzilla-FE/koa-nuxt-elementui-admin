@@ -1,0 +1,127 @@
+@import './_reset';
+@import "~element-ui/packages/theme-chalk/src/index";
+
+$border-color : #23282c;
+$background-color : #3a4149;
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, helvetica neue, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
+  font-size: .875rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #e4e7ea;
+  text-align: left;
+  background-color: #2f353a;
+}
+
+input, select, button {
+  outline: none;
+}
+
+//card
+.el-card {
+  color: inherit;
+  background-color: $background-color;
+  border: 1px solid $border-color;
+  border-radius: .25rem;
+  .el-card__header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: #343b41;
+    border-bottom: 1px solid $border-color;
+  }
+  .cl-card_body {
+    padding: 1.25rem;
+  }
+  margin-bottom: 20px;
+}
+
+//menu
+.el-menu-item-group__title {
+  padding: .75rem 1rem;
+  font-size: 80%;
+  font-weight: 700;
+  color: #e4e7ea;
+  text-transform: uppercase;
+}
+
+//button
+.el-button--default.is-plain {
+  background: inherit;
+}
+
+.el-button--primary.is-plain {
+  background: inherit;
+}
+
+.el-button--success.is-plain {
+  background: inherit;
+}
+
+.el-button--warning.is-plain {
+  background: inherit;
+}
+
+.el-button--info.is-plain {
+  background: inherit;
+}
+
+.el-button--danger.is-plain {
+  background: inherit;
+}
+
+//mask
+.el-loading-mask.is-fullscreen {
+  background: rgba(0, 0, 0, 0.7);
+}
+
+
+//table
+.el-table {
+  color:inherit;
+}
+.el-table thead {
+  color: white;
+}
+.el-table, .el-table__expanded-cell {
+  background-color: inherit;
+}
+.el-table th, .el-table tr {
+  background-color: inherit;
+}
+.el-table--striped .el-table__body tr.el-table__row--striped td {
+  background: rgba(0,0,0,.05);
+}
+.el-table td, .el-table th.is-leaf {
+  //border-bottom: 1px solid $border-color;
+}
+
+.el-table--border, .el-table--group {
+  border: 1px solid $border-color;
+}
+
+.el-table--border::after, .el-table--group::after, .el-table::before {
+  background-color: $border-color;
+}
+
+.el-table--border td, .el-table--border th, .el-table__body-wrapper .el-table--border.is-scrolling-left~.el-table__fixed {
+  border-right: 1px solid $border-color;
+}
+.el-table td, .el-table th.is-leaf {
+  border-bottom: 1px solid $border-color;
+}
+.el-table--border {
+  border-right: none;
+  border-bottom: none;
+}
+.el-table--striped .el-table__body tr.el-table__row--striped.current-row td, .el-table__body tr.current-row>td, .el-table__body tr.hover-row.current-row>td, .el-table__body tr.hover-row.el-table__row--striped.current-row>td, .el-table__body tr.hover-row.el-table__row--striped>td, .el-table__body tr.hover-row>td {
+  background-color: rgba(0,0,0,.2);
+}
+
+.el-table--enable-row-hover .el-table__body tr:hover>td {
+  background-color: rgba(0,0,0,.2);
+}

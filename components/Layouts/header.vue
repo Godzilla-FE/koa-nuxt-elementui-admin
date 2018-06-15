@@ -1,11 +1,4 @@
-<style lang="less"  rel="stylesheet/less">
-  @media (min-width: 992px){
-    .header-fixed .app-header {
-      position: fixed;
-      z-index: 1020;
-      width: 100%;
-    }
-  }
+<style lang="scss"  rel="stylesheet/scss">
   .app-header, .app-footer, .sidebar, .main, .aside-menu {
     transition: margin-left .25s,margin-right .25s,width .25s,flex .25s;
     transition: margin-left .25s,margin-right .25s,width .25s,flex .25s,-ms-flex .25s;
@@ -114,7 +107,6 @@
     <el-menu
       class="el-menu-demo"
       mode="horizontal"
-      @select="handleSelect"
       background-color="#3a4149"
       text-color="#fff"
       active-text-color="#ffd04b">

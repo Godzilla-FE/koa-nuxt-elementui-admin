@@ -7,8 +7,8 @@ export const getListByLastTime = async (store, params) => {
 }
 
 
-export const getTable = async (store, params) => {
-  return await request.get('/api/table', params)
+export const getTable = async (store, {page=1,limit=20}) => {
+  return await request.get('/api/table', {page,limit})
 }
 
 

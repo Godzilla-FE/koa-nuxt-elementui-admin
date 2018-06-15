@@ -1,4 +1,4 @@
-<style lang="less"  rel="stylesheet/less">
+<style lang="scss"  rel="stylesheet/scss">
   html:not([dir=rtl]) .sidebar {
     margin-left: -200px;
   }
@@ -25,7 +25,6 @@
       flex: 1;
       overflow-x: hidden;
       overflow-y: auto;
-      width: 199px;
     }
 
     .sidebar-minimizer {
@@ -56,6 +55,9 @@
     .el-submenu .el-menu-item {
       min-width:199px;
     }
+  }
+  .el-menu--vertical .el-menu {
+    border: 1px solid #23282c;
   }
   @media (min-width: 992px){
     .sidebar-fixed .app-header+.app-body .sidebar {
@@ -97,71 +99,15 @@
   <div class="sidebar">
     <nav class="sidebar-nav">
       <el-menu
-        default-active="2"
-        class="el-menu-vertical-demo"
+        :default-active="active"
         background-color="#3a4149"
         text-color="#f3f4f5"
         active-text-color="#ffd04b"
         :collapse="collapsed"
+        :collapse-transition="false"
+        :router="true"
       >
-        <el-submenu index="1">
-          <template slot="title">
-            <i class="el-icon-location"></i>
-            <span>导航一</span>
-          </template>
-          <el-menu-item-group>
-            <template slot="title">分组一</template>
-            <el-menu-item index="1-1">选项1</el-menu-item>
-            <el-menu-item index="1-2">选项2</el-menu-item>
-          </el-menu-item-group>
-          <el-menu-item-group title="分组2">
-            <el-menu-item index="1-3">选项3</el-menu-item>
-          </el-menu-item-group>
-          <el-submenu index="1-4">
-            <template slot="title">选项4</template>
-            <el-menu-item index="1-4-1">选项1</el-menu-item>
-          </el-submenu>
-        </el-submenu>
-        <el-menu-item index="2">
-          <i class="el-icon-menu"></i>
-          <span slot="title">导航二</span>
-        </el-menu-item>
-        <el-menu-item index="3" disabled>
-          <i class="el-icon-document"></i>
-          <span slot="title">导航三</span>
-        </el-menu-item>
-        <el-menu-item index="4">
-          <i class="el-icon-setting"></i>
-          <span slot="title">导航四</span>
-        </el-menu-item>
-        <el-menu-item index="5">
-          <i class="el-icon-setting"></i>
-          <span slot="title">导航四</span>
-        </el-menu-item>
-        <el-menu-item index="6">
-          <i class="el-icon-setting"></i>
-          <span slot="title">导航四</span>
-        </el-menu-item>
-        <el-menu-item index="7">
-          <i class="el-icon-setting"></i>
-          <span slot="title">导航四</span>
-        </el-menu-item>
-        <el-menu-item index="8">
-          <i class="el-icon-setting"></i>
-          <span slot="title">导航四</span>
-        </el-menu-item>
-        <el-menu-item index="9">
-          <i class="el-icon-setting"></i>
-          <span slot="title">导航四</span>
-        </el-menu-item>
-        <el-menu-item index="10">
-          <i class="el-icon-setting"></i>
-          <span slot="title">导航四</span>
-        </el-menu-item>
-        <el-menu-item index="11">
-          <i class="el-icon-setting"></i>
-          <span slot="title">导航四</span>
-        </el-menu-item>
+        <v-menu v-for="(item,index) in menu" :data="item" :key="index"/>
       </el-menu>
     </nav>
     <button class="sidebar-minimizer brand-minimizer" type="button" @click="$emit('toggle')"></button>
@@ -169,9 +115,28 @@
 </template>
 
 <script>
-
+  import VMenu from './menu.vue';
+  import menu from './menu';
   export default {
     name: 'app-sidebar',
+    components:{
+      VMenu
+    },
+    data:function(){
+      return {
+        active:this.$router.history.current.path,
+        menu
+      }
+    },
+    methods:{
+      onRouteChange:function (current) {
+        this.active = current.path
+      }
+    },
     props:['collapsed'],
+    watch: {
+      // 如果路由有变化，会再次执行该方法
+      "$route": "onRouteChange"
+    }
   }
 </script>
