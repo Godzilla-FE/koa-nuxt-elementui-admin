@@ -1,6 +1,5 @@
 <template>
   <div>
-    {{res}}
     <el-card>
       <standard-table :data="data" border stripe :page="page" :limit="limit" :total="total" @change="change">
         <el-table-column
@@ -42,7 +41,6 @@
 </style>
 <script>
   import StandardTable from '~/components/standard-table.vue';
-  import moment from 'moment';
   export default {
     components:{
       StandardTable
@@ -52,7 +50,6 @@
         title: `白名单管理`
       }
     },
-    moment,
     methods:{
       change:function(query){
         this.$router.push({ path: '/system/whitelist/list', query})
@@ -76,20 +73,16 @@
         limit:20,
         page:1,
         total:48,
-        res:null
+        data:[],
       }
     },
     async asyncData ({ store, error ,query }) {
-      console.warn('query',query);
       var {limit=20,page=1} = query;
       var start  = (page-1)*limit;
       var length = limit;
       var res = await store.dispatch('getWhiteList', {start,length});
       if(!res.obj){
-        return {
-          res,
-          data:[],
-        }
+        return
       }
 
       var {curPage,pageSize,total,data} = res.obj ||{};
