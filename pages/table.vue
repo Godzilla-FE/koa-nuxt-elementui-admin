@@ -1,7 +1,7 @@
 <template>
   <div>
     <el-card>
-      <standard-table :data="data" :border="true" :page="page" :limit="limit" :total="total" @change="change">
+      <standard-table :data="data" border stripe :page="page" :limit="limit" :total="total" @change="change">
         <el-table-column
           prop="date"
           label="日期"

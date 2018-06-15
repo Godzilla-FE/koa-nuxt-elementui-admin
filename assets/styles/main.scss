@@ -1,38 +1,30 @@
 @import './_reset';
+@import './var';
+
+
+
 @import "~element-ui/packages/theme-chalk/src/index";
+@import 'layout';
 
-$border-color : #23282c;
-$background-color : #3a4149;
-html {
-  font-size: 16px;
+// 注释了element-ui icon.scss 内的字体重新声明 否则nuxt编译时会报错
+@font-face {
+  font-family: 'element-icons';
+  src: url('../fonts/element-icons.woff') format('woff'), /* chrome, firefox */
+  url('../fonts/element-icons.ttf') format('truetype'); /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  font-weight: normal;
+  font-style: normal
 }
+//
 
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, helvetica neue, Arial, sans-serif, apple color emoji, segoe ui emoji, segoe ui symbol;
-  font-size: .875rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #e4e7ea;
-  text-align: left;
-  background-color: #2f353a;
-}
-
-input, select, button {
-  outline: none;
-}
+$card－header-background-color:$--background-color-base;
 
 //card
 .el-card {
-  color: inherit;
-  background-color: $background-color;
-  border: 1px solid $border-color;
+  border: 1px solid $--border-color-base;
   border-radius: .25rem;
   .el-card__header {
     padding: .75rem 1.25rem;
     margin-bottom: 0;
-    background-color: #343b41;
-    border-bottom: 1px solid $border-color;
   }
   .cl-card_body {
     padding: 1.25rem;
@@ -45,34 +37,10 @@ input, select, button {
   padding: .75rem 1rem;
   font-size: 80%;
   font-weight: 700;
-  color: #e4e7ea;
   text-transform: uppercase;
 }
 
-//button
-.el-button--default.is-plain {
-  background: inherit;
-}
 
-.el-button--primary.is-plain {
-  background: inherit;
-}
-
-.el-button--success.is-plain {
-  background: inherit;
-}
-
-.el-button--warning.is-plain {
-  background: inherit;
-}
-
-.el-button--info.is-plain {
-  background: inherit;
-}
-
-.el-button--danger.is-plain {
-  background: inherit;
-}
 
 //mask
 .el-loading-mask.is-fullscreen {
@@ -81,38 +49,31 @@ input, select, button {
 
 
 //table
-.el-table {
-  color:inherit;
-}
+
 .el-table thead {
-  color: white;
+  color: $--color-text-primary;
 }
-.el-table, .el-table__expanded-cell {
-  background-color: inherit;
-}
-.el-table th, .el-table tr {
-  background-color: inherit;
-}
+
 .el-table--striped .el-table__body tr.el-table__row--striped td {
   background: rgba(0,0,0,.05);
 }
 .el-table td, .el-table th.is-leaf {
-  //border-bottom: 1px solid $border-color;
+  border-bottom: 1px solid $--border-color-base;
 }
 
 .el-table--border, .el-table--group {
-  border: 1px solid $border-color;
+  border: 1px solid $--border-color-base;
 }
 
 .el-table--border::after, .el-table--group::after, .el-table::before {
-  background-color: $border-color;
+  background-color: $--border-color-base;
 }
 
 .el-table--border td, .el-table--border th, .el-table__body-wrapper .el-table--border.is-scrolling-left~.el-table__fixed {
-  border-right: 1px solid $border-color;
+  border-right: 1px solid $--border-color-base;
 }
 .el-table td, .el-table th.is-leaf {
-  border-bottom: 1px solid $border-color;
+  border-bottom: 1px solid $--border-color-base;
 }
 .el-table--border {
   border-right: none;

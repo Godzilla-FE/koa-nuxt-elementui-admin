@@ -24,6 +24,7 @@
   "devDependencies": {
     "@nuxtjs/proxy": "^1.2.4",
     "babel-eslint": "^7.1.1",
+    "babel-plugin-component": "^1.1.1",
     "backpack-core": "^0.3.0",
     "eslint": "^3.13.1",
     "eslint-config-standard": "^10.2.1",
@@ -33,9 +34,9 @@
     "eslint-plugin-node": "^4.2.2",
     "eslint-plugin-promise": "^3.4.0",
     "eslint-plugin-standard": "^3.0.1",
-    "sass-loader": "^7.0.3",
     "node-sass": "^4.9.0",
     "nodemon": "^1.11.0",
+    "sass-loader": "^7.0.3",
     "scmp": "^2.0.0"
   }
 }

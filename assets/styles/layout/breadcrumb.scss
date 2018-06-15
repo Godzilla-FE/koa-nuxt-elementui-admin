@@ -1,0 +1,37 @@
+@import "../var";
+
+.breadcrumb {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding: .75rem 1rem;
+  margin-bottom: 1.5rem;
+  list-style: none;
+  background-color: $--color-white;
+  border-radius: 0;
+}
+.breadcrumb {
+  position: relative;
+  border-radius: 0;
+  border-bottom: 1px solid $--border-color-base;
+}
+.breadcrumb {
+  transition: left .25s,right .25s,width .25s;
+}
+.breadcrumb-item+.breadcrumb-item::before {
+  display: inline-block;
+  padding-right: .5rem;
+  color: $--color-text-primary;
+  content: "/";
+}
+.breadcrumb-item+.breadcrumb-item {
+  padding-left: .5rem;
+}
+.breadcrumb-item.active {
+  color: $--color-text-primary;
+}
+
+.breadcrumb-menu {
+  margin-left: auto;
+}

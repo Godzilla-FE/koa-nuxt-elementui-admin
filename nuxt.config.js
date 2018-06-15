@@ -13,17 +13,6 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  babel:{
-    "plugins": [["component", [
-      {
-        "libraryName": "element-ui",
-        "styleLibraryName": "theme-default"
-      },
-      'transform-async-to-generator',
-      'transform-runtime'
-    ]]],
-    comments: true
-  },
   /*
   ** Global CSS
   */
@@ -37,6 +26,17 @@ module.exports = {
    */
   build: {
     vendor: ['element-ui'],
+    // babel:{
+    //   "plugins": [["component", [
+    //     {
+    //       "libraryName": "element-ui",
+    //       "styleLibraryName": "theme-chalk"
+    //     },
+    //     'transform-async-to-generator',
+    //     'transform-runtime'
+    //   ]]],
+    //   comments: true
+    // },
     /*
      ** Run ESLINT on save
      */

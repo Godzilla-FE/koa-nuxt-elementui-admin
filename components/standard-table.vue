@@ -23,20 +23,16 @@
   </div>
 </template>
 <style lang="scss" rel="stylesheet/scss">
-  @import '~assets/styles/main.scss';
+  @import '~assets/styles/var.scss';
   .standard-table {
     .standard-table-pagination {
       padding: 8px 10px;
-      border-bottom: 1px solid $border-color;
-
-      .el-pagination__total,.el-pagination__jump {
-        color: white;
-      }
+      border-bottom: 1px solid $--border-color-base;
     }
     &.border {
       .standard-table-pagination {
-        border-left: 1px solid  $border-color;
-        border-right: 1px solid $border-color;
+        border-left: 1px solid  $--border-color-base;
+        border-right: 1px solid $--border-color-base;
       }
     }
   }

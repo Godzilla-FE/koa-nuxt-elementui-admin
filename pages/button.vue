@@ -1,6 +1,5 @@
 <template>
   <div class="buttons">
-    <nuxt-link to="/">首页</nuxt-link>
     <el-card>
       <div slot="header" class="clearfix">
         <span>Standard Buttons</span>
