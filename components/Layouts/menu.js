@@ -9,23 +9,10 @@ export default [{
   icon:'el-icon-document',
   path:'/',
 },{
-  title:'组件',
+  title:'基础配置',
   icon:'el-icon-location',
   children:[{
-    title:'按钮',
-    path:'/button',
+    title:'白名单管理',
+    path:'/system/whitelist/list',
   }]
-},{
-  title:'组件2',
-  icon:'el-icon-location',
-  type:'group',
-  children:[{
-    title:'按钮',
-    icon:'el-icon-setting',
-    path:'/button2',
-  }]
-},{
-  title:'表格',
-  path:'/table',
-  icon:'el-icon-setting',
 }]

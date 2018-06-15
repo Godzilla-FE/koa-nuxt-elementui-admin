@@ -15,3 +15,8 @@ export const getTable = async (store, {page=1,limit=20}) => {
 export const getTodoList = async (store, params) => {
   return await request.get('/api/todolist', params)
 }
+
+
+export const getWhiteList = async (store, {start=0,length=20}) => {
+  return await request.post('/api/system/whitelist/list', {start,length})
+}

@@ -52,15 +52,21 @@ module.exports = {
     // }
   },
   plugins: [
-    '@/plugins/element-ui'
+    '@/plugins/element-ui',
+    '@/plugins/moment'
   ],
   modules: [
     '@nuxtjs/proxy'
   ],
   proxy: {
-    "/api": {
-      "target": "http://yapi.cbpmgt.com/mock/66",
+    // "/api": {
+    //   "target": "http://yapi.cbpmgt.com/mock/66",
+    //   "changeOrigin": true,
+    // },
+    "/api/system/whitelist/list": {
+      "target": "http://nom.jd.com/",
       "changeOrigin": true,
+      pathRewrite: {'^/api' : '/'}
     }
   }
 }

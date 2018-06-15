@@ -19,7 +19,8 @@
     "koa": "^2.4.1",
     "nuxt": "latest",
     "qs": "^6.5.2",
-    "source-map-support": "^0.4.15"
+    "source-map-support": "^0.4.15",
+    "vue-moment": "^4.0.0-0"
   },
   "devDependencies": {
     "@nuxtjs/proxy": "^1.2.4",

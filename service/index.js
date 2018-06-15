@@ -35,7 +35,7 @@ export default {
     return service({
       method: 'post',
       url,
-      params: data
+      data
     })
   },
   get (url, data) {
