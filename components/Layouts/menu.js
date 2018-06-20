@@ -15,4 +15,8 @@ export default [{
     title:'白名单管理',
     path:'/system/whitelist/list',
   }]
+},{
+  title:'数',
+  icon:'el-icon-location',
+  path:'/books/list',
 }]

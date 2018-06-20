@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <page-header-layout>
     <el-card>
       <standard-table :data="data" border stripe :page="page" :limit="limit" :total="total" @change="change">
         <el-table-column
@@ -18,16 +18,24 @@
         </el-table-column>
       </standard-table>
     </el-card>
-  </div>
+  </page-header-layout>
 </template>
 <style scoped lang="scss"  rel="stylesheet/scss" >
 
 </style>
 <script>
   import StandardTable from '~/components/standard-table.vue';
+  import PageHeaderLayout from '~/layouts/page-header-layout.vue';
+
+  async function fetch(store, query) {
+    var {data, limit, total, page} = await store.dispatch('getTable', query);
+    return {data, limit:limit*1, total:total*1, page:page*1}
+  }
+
   export default {
     components:{
-      StandardTable
+      StandardTable,
+      PageHeaderLayout
     },
     head() {
       return {
@@ -38,18 +46,12 @@
       change:function(query){
         this.$router.push({ path: '/table', query})
       },
-      routeChange:async function (current) {
-        let {page,limit,total,data} = await  this.$store.dispatch('getTable', current.query);
-        console.warn('routeChange',page,limit,total,data);
-        this.page = page*1;
-        this.limit = limit*1;
-        this.total = total;
-        this.data = data;
-      },
-
     },
     watch: {
-      "$route": "routeChange"
+      "$route.query":  async function (query) {
+        var r = await fetch(this.$store,query);
+        Object.assign(this,r)
+      },
     },
     data() {
       return {
@@ -72,18 +74,11 @@
         }],
         limit:20,
         page:1,
-        total:48
+        total:48,
       }
     },
-    async asyncData ({ store, error ,query }) {
-      console.warn('query',query);
-      let res = await store.dispatch('getTable', query);
-      return {
-        data: res.data||[],
-        page: res.page*1,
-        limit: (res.limit||20)*1,
-        total: res.total||0,
-      }
+    async asyncData ({store, error, query}) {
+      return await fetch(store,query);
     },
   }
 </script>

@@ -18,6 +18,12 @@
 
 $card－header-background-color:$--background-color-base;
 
+.page-enter-active, .page-leave-active {
+  transition: opacity .3s
+}
+.page-enter, .page-leave-active {
+  opacity: 0
+}
 //card
 .el-card {
   border: 1px solid $--border-color-base;

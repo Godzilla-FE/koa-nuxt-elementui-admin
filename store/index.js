@@ -1,15 +1,24 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-import state from './state'
-import * as mutations from './mutations'
-import * as actions from './actions'
+/**
+ * Created by zhangbohan on 18/6/20.
+ */
+import request from '~/service'
 
-Vue.use(Vuex)
+export const actions = {
+  getListByLastTime: async(store, params) => {
+    return await request.get('/api/list', params)
+  },
+  getTable: async(store, {page = 1, limit = 20}) => {
+    return await request.get('/api/table', {page, limit})
+  },
+  getWhiteList: async(store, {start = 0, length = 20}) => {
+    return await request.post('/api/system/whitelist/list', {start, length})
+  },
+  getTodoList: async(store, params) => {
+    return await request.get('/api/todolist', params)
+  }
+}
 
-const store = () => new Vuex.Store({
-  state,
-  mutations,
-  actions
-})
-
-export default store
+export const getters = {
+  sidebar: state => state.app.sidebar,
+  device: state => state.app.device,
+}

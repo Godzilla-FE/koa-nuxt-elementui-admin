@@ -19,19 +19,4 @@
 .breadcrumb {
   transition: left .25s,right .25s,width .25s;
 }
-.breadcrumb-item+.breadcrumb-item::before {
-  display: inline-block;
-  padding-right: .5rem;
-  color: $--color-text-primary;
-  content: "/";
-}
-.breadcrumb-item+.breadcrumb-item {
-  padding-left: .5rem;
-}
-.breadcrumb-item.active {
-  color: $--color-text-primary;
-}
 
-.breadcrumb-menu {
-  margin-left: auto;
-}

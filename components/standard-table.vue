@@ -74,9 +74,6 @@
         type: Array,
         default: []
       }
-    },
-    mounted(){
-      console.warn('mounted',this.$props)
     }
   }
 </script>
