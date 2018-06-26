@@ -14,5 +14,5 @@ dist
 # misc
 .DS_Store
 npm-debug.log*
-.idea
+/.idea
 package-lock.json
